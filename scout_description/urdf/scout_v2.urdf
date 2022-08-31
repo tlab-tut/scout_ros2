@@ -158,6 +158,7 @@
         <mesh filename="package://depthai_bridge/urdf/models/OAK-D-PRO.stl"/>
         <material name="mat">
           <color rgba="0.8 0.8 0.8 0.8"/>
+          <!-- TODO: FIX COLORING -->
         </material>
       </geometry>
     </visual>
@@ -166,5 +167,51 @@
     <parent link="oak-d_frame"/>
     <child link="oak_model_origin"/>
     <origin rpy="1.5708 0 1.5708" xyz="0 0 0"/>
+  </joint>
+  <!-- IMU -->
+  <link name="oak_imu_frame"/>
+  <joint name="oak_imu_joint" type="fixed">
+    <parent link="oak-d_frame"/>
+    <child link="oak_imu_frame"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+  <!-- RGB Camera -->
+  <link name="oak_rgb_camera_frame"/>
+  <joint name="oak_rgb_camera_joint" type="fixed">
+    <parent link="oak-d_frame"/>
+    <child link="oak_rgb_camera_frame"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+  <link name="oak_rgb_camera_optical_frame"/>
+  <joint name="oak_rgb_camera_optical_joint" type="fixed">
+    <origin rpy="-1.570795 0.0 -1.570795" xyz="0 0 0"/>
+    <parent link="oak_rgb_camera_frame"/>
+    <child link="oak_rgb_camera_optical_frame"/>
+  </joint>
+  <!-- Left Camera -->
+  <link name="oak_left_camera_frame"/>
+  <joint name="oak_left_camera_joint" type="fixed">
+    <parent link="oak-d_frame"/>
+    <child link="oak_left_camera_frame"/>
+    <origin rpy="0 0 0" xyz="0 0.0375 0"/>
+  </joint>
+  <link name="oak_left_camera_optical_frame"/>
+  <joint name="oak_left_camera_optical_joint" type="fixed">
+    <origin rpy="-1.570795 0.0 -1.570795" xyz="0 0 0"/>
+    <parent link="oak_left_camera_frame"/>
+    <child link="oak_left_camera_optical_frame"/>
+  </joint>
+  <!-- right Camera -->
+  <link name="oak_right_camera_frame"/>
+  <joint name="oak_right_camera_joint" type="fixed">
+    <parent link="oak-d_frame"/>
+    <child link="oak_right_camera_frame"/>
+    <origin rpy="0 0 0" xyz="0 -0.0375 0"/>
+  </joint>
+  <link name="oak_right_camera_optical_frame"/>
+  <joint name="oak_right_camera_optical_joint" type="fixed">
+    <origin rpy="-1.570795 0.0 -1.570795" xyz="0 0 0"/>
+    <parent link="oak_right_camera_frame"/>
+    <child link="oak_right_camera_optical_frame"/>
   </joint>
 </robot>

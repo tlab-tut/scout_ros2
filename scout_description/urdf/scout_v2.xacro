@@ -100,11 +100,10 @@
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://depthai_bridge/urdf/models/OAK-D-PRO.stl" />
-                <material name="mat">
-                <color rgba="0.8 0.8 0.8 0.8"/> 
-                <!-- TODO: FIX COLORING -->
-            </material>
             </geometry>
+            <material name="mat">
+                <color rgba="0.8 0.8 0.8 0.8"/> 
+            </material>
         </visual>
     </link>
 
