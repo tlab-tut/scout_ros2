@@ -97,8 +97,8 @@ class ScoutMessenger {
           actuator.actuator_hs_state[i].rpm;
       status_msg.actuator_states[motor_id].current =
           actuator.actuator_hs_state[i].current;
-      status_msg.actuator_states[motor_id].pulse_count =
-          actuator.actuator_hs_state[i].pulse_count;
+      //status_msg.actuator_states[motor_id].pulse_count =
+          //actuator.actuator_hs_state[i].pulse_count;
 
       // actuator_ls_state
       motor_id = actuator.actuator_ls_state[i].motor_id;
@@ -109,8 +109,8 @@ class ScoutMessenger {
           actuator.actuator_ls_state[i].driver_temp;
       status_msg.actuator_states[motor_id].motor_temperature =
           actuator.actuator_ls_state[i].motor_temp;
-      status_msg.actuator_states[motor_id].driver_state =
-          actuator.actuator_ls_state[i].driver_state;
+      //status_msg.actuator_states[motor_id].driver_state =
+          //actuator.actuator_ls_state[i].driver_state;
     }
 
     status_msg.light_control_enabled = state.light_state.enable_cmd_ctrl;
