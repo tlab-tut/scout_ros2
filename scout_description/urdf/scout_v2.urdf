@@ -52,7 +52,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://robot_description/meshes/scout_v2/wheel_type1.dae"/>
+        <mesh filename="package://scout_description/meshes/scout_v2/wheel_type1.dae"/>
       </geometry>
     </visual>
     <collision>
@@ -77,7 +77,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://robot_description/meshes/scout_v2/wheel_type2.dae"/>
+        <mesh filename="package://scout_description/meshes/scout_v2/wheel_type2.dae"/>
       </geometry>
     </visual>
     <collision>
@@ -102,7 +102,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://robot_description/meshes/scout_v2/wheel_type1.dae"/>
+        <mesh filename="package://scout_description/meshes/scout_v2/wheel_type1.dae"/>
       </geometry>
     </visual>
     <collision>
@@ -127,7 +127,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://robot_description/meshes/scout_v2/wheel_type2.dae"/>
+        <mesh filename="package://scout_description/meshes/scout_v2/wheel_type2.dae"/>
       </geometry>
     </visual>
     <collision>
@@ -142,5 +142,76 @@
     <child link="rear_right_wheel_link"/>
     <origin rpy="3.14 0 0" xyz="-0.249 -0.29153 -0.0702"/>
     <axis rpy="0 0 0" xyz="0 -1 0"/>
+  </joint>
+  <!-- base_link of the sensor-->
+  <link name="oak-d_frame"/>
+  <joint name="oak_center_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="oak-d_frame"/>
+    <origin rpy="0 0 0" xyz="0.4 0.0 0.25"/>
+  </joint>
+  <!-- device Center -->
+  <link name="oak_model_origin">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://depthai_bridge/urdf/models/OAK-D-PRO.stl"/>
+        <material name="mat">
+          <color rgba="0.8 0.8 0.8 0.8"/>
+          <!-- TODO: FIX COLORING -->
+        </material>
+      </geometry>
+    </visual>
+  </link>
+  <joint name="oak_model_origin_joint" type="fixed">
+    <parent link="oak-d_frame"/>
+    <child link="oak_model_origin"/>
+    <origin rpy="1.5708 0 1.5708" xyz="0 0 0"/>
+  </joint>
+  <!-- IMU -->
+  <link name="oak_imu_frame"/>
+  <joint name="oak_imu_joint" type="fixed">
+    <parent link="oak-d_frame"/>
+    <child link="oak_imu_frame"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+  <!-- RGB Camera -->
+  <link name="oak_rgb_camera_frame"/>
+  <joint name="oak_rgb_camera_joint" type="fixed">
+    <parent link="oak-d_frame"/>
+    <child link="oak_rgb_camera_frame"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+  <link name="oak_rgb_camera_optical_frame"/>
+  <joint name="oak_rgb_camera_optical_joint" type="fixed">
+    <origin rpy="-1.570795 0.0 -1.570795" xyz="0 0 0"/>
+    <parent link="oak_rgb_camera_frame"/>
+    <child link="oak_rgb_camera_optical_frame"/>
+  </joint>
+  <!-- Left Camera -->
+  <link name="oak_left_camera_frame"/>
+  <joint name="oak_left_camera_joint" type="fixed">
+    <parent link="oak-d_frame"/>
+    <child link="oak_left_camera_frame"/>
+    <origin rpy="0 0 0" xyz="0 0.0375 0"/>
+  </joint>
+  <link name="oak_left_camera_optical_frame"/>
+  <joint name="oak_left_camera_optical_joint" type="fixed">
+    <origin rpy="-1.570795 0.0 -1.570795" xyz="0 0 0"/>
+    <parent link="oak_left_camera_frame"/>
+    <child link="oak_left_camera_optical_frame"/>
+  </joint>
+  <!-- right Camera -->
+  <link name="oak_right_camera_frame"/>
+  <joint name="oak_right_camera_joint" type="fixed">
+    <parent link="oak-d_frame"/>
+    <child link="oak_right_camera_frame"/>
+    <origin rpy="0 0 0" xyz="0 -0.0375 0"/>
+  </joint>
+  <link name="oak_right_camera_optical_frame"/>
+  <joint name="oak_right_camera_optical_joint" type="fixed">
+    <origin rpy="-1.570795 0.0 -1.570795" xyz="0 0 0"/>
+    <parent link="oak_right_camera_frame"/>
+    <child link="oak_right_camera_optical_frame"/>
   </joint>
 </robot>
