@@ -17,35 +17,36 @@
 
 #include "ugv_sdk/mobile_robot/scout_robot.hpp"
 
-namespace westonrobot {
+namespace westonrobot
+{
 class ScoutBaseRos : public rclcpp::Node {
- public:
-  ScoutBaseRos(std::string node_name);
+public:
+    ScoutBaseRos(std::string node_name);
 
-  bool Initialize();
-  void Run();
-  void Stop();
+    bool Initialize();
+    void Run();
+    void Stop();
 
- private:
-  std::string port_name_;
-  std::string odom_frame_;
-  std::string base_frame_;
-  std::string odom_topic_name_;
+private:
+    std::string port_name_;
+    std::string odom_frame_;
+    std::string base_frame_;
+    std::string odom_topic_name_;
 
-  bool is_scout_mini_ = false;
-  bool is_omni_wheel_ = false;
+    bool is_scout_mini_ = false;
+    bool is_omni_wheel_ = false;
 
-  bool simulated_robot_ = false;
-  int sim_control_rate_ = 50;
+    bool simulated_robot_ = false;
+    int sim_control_rate_ = 50;
 
-  bool is_omni_ = false;
-  std::shared_ptr<ScoutRobot> robot_;
-  std::shared_ptr<ScoutMiniOmniRobot> omni_robot_;
+    bool is_omni_ = false;
+    std::shared_ptr<ScoutRobot> robot_;
+    std::shared_ptr<ScoutMiniOmniRobot> omni_robot_;
 
-  std::atomic<bool> keep_running_;
+    std::atomic<bool> keep_running_;
 
-  void LoadParameters();
+    void LoadParameters();
 };
-}  // namespace westonrobot
+} // namespace westonrobot
 
 #endif /* SCOUT_BASE_ROS_HPP */

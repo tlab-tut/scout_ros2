@@ -21,21 +21,23 @@ using namespace westonrobot;
 
 std::shared_ptr<ScoutBaseRos> robot;
 
-void DetachRobot(int signal) {
-  (void)signal;
-  robot->Stop();
+void DetachRobot(int signal)
+{
+    (void)signal;
+    robot->Stop();
 }
 
-int main(int argc, char **argv) {
-  // setup ROS node
-  rclcpp::init(argc, argv);
-  //   std::signal(SIGINT, DetachRobot);
+int main(int argc, char** argv)
+{
+    // setup ROS node
+    rclcpp::init(argc, argv);
+    //   std::signal(SIGINT, DetachRobot);
 
-  robot = std::make_shared<ScoutBaseRos>("scout");
-  if (robot->Initialize()) {
-    std::cout << "Robot initialized, start running ..." << std::endl;
-    robot->Run();
-  }
+    robot = std::make_shared<ScoutBaseRos>("scout");
+    if (robot->Initialize()) {
+        std::cout << "Robot initialized, start running ..." << std::endl;
+        robot->Run();
+    }
 
-  return 0;
+    return 0;
 }
