@@ -50,7 +50,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="front_right_wheel" type="continuous">
+  <joint name="front_right_wheel" type="fixed">
     <parent link="base_link"/>
     <child link="front_right_wheel_link"/>
     <origin rpy="1.57 0 0" xyz="0.2319755 -0.2082515 -0.100998"/>
@@ -75,7 +75,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="front_left_wheel" type="continuous">
+  <joint name="front_left_wheel" type="fixed">
     <parent link="base_link"/>
     <child link="front_left_wheel_link"/>
     <origin rpy="-1.57 0 0" xyz="0.2319755 0.2082515 -0.100998"/>
@@ -100,7 +100,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="rear_left_wheel" type="continuous">
+  <joint name="rear_left_wheel" type="fixed">
     <parent link="base_link"/>
     <child link="rear_left_wheel_link"/>
     <origin rpy="-1.57 0 0" xyz="-0.2319755 0.2082515 -0.100998"/>
@@ -125,7 +125,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="rear_right_wheel" type="continuous">
+  <joint name="rear_right_wheel" type="fixed">
     <parent link="base_link"/>
     <child link="rear_right_wheel_link"/>
     <origin rpy="1.57 0 0" xyz="-0.2319755 -0.2082515 -0.100998"/>
