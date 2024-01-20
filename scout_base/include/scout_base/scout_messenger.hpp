@@ -218,12 +218,12 @@ private:
     void PublishOdometryToROS(const MotionStateMessage& msg, double dt)
     {
         // perform numerical integration to get an estimation of pose
-        double linear_speed = msg.linear_velocity / 1.16;
-        double angular_speed = msg.angular_velocity / 1.16;
+        double linear_speed = msg.linear_velocity / 1.2;
+        double angular_speed = msg.angular_velocity / 1.2;
         double lateral_speed = 0;
 
         if (std::is_base_of<ScoutMiniOmniRobot, ScoutType>::value) {
-            lateral_speed = msg.lateral_velocity / 1.16;
+            lateral_speed = msg.lateral_velocity / 1.2;
         }
         else {
             lateral_speed = 0;
